@@ -109,8 +109,11 @@ class _AddPillReminderState extends State<AddPillReminder> {
                       color: Colors.black,
                     )),
           ),
-          Medicine(context,'Mobile App design','Annual kit'),
-          //  Medicine(context),
+          
+          Medicine(context,'Mobile App design','Annual kit',Colors.pinkAccent),
+           Medicine(context,'Software Engineer','Automation Tessting',Colors.cyanAccent),
+            Medicine(context,'Web Development','Full Stack',Color.fromARGB(255, 228, 213, 84)),
+      
            
     ]));
   }
@@ -161,49 +164,7 @@ class TimesDay extends StatelessWidget {
   }
 }
 
-Future<TimeOfDay?> showTimePicker({
-  required BuildContext context,
-  required TimeOfDay initialTime,
-  TransitionBuilder? builder,
-  bool useRootNavigator = true,
-  TimePickerEntryMode initialEntryMode = TimePickerEntryMode.dial,
-  String? cancelText,
-  String? confirmText,
-  String? helpText,
-  String? errorInvalidText,
-  String? hourLabelText,
-  String? minuteLabelText,
-  RouteSettings? routeSettings,
-  EntryModeChangeCallback? onEntryModeChanged,
-  Offset? anchorPoint,
-}) async {
-  assert(context != null);
-  assert(initialTime != null);
-  assert(useRootNavigator != null);
-  assert(initialEntryMode != null);
-  assert(debugCheckHasMaterialLocalizations(context));
 
-  final Widget dialog = TimePickerDialog(
-    initialTime: initialTime,
-    initialEntryMode: initialEntryMode,
-    cancelText: cancelText,
-    confirmText: confirmText,
-    helpText: helpText,
-    errorInvalidText: errorInvalidText,
-    hourLabelText: hourLabelText,
-    minuteLabelText: minuteLabelText,
-    onEntryModeChanged: onEntryModeChanged,
-  );
-  return showDialog<TimeOfDay>(
-    context: context,
-    useRootNavigator: useRootNavigator,
-    builder: (BuildContext context) {
-      return builder == null ? dialog : builder(context, dialog);
-    },
-    routeSettings: routeSettings,
-    anchorPoint: anchorPoint,
-  );
-}
 
 Widget profile(context) {
   return Column(children: [
@@ -226,7 +187,7 @@ Widget profile(context) {
     )),
   ]);
 }
-Widget Medicine(context,tite,subtile) {
+Widget Medicine(context,tite,subtile,color) {
   return 
       Container(
           margin: EdgeInsets.only(
@@ -246,7 +207,7 @@ Widget Medicine(context,tite,subtile) {
              
               boxShadow: [
                 BoxShadow(
-                 color:Color.fromARGB(255, 196, 83, 216),
+                 color:color,
                           offset: const Offset(
                          1,1
                           ),
